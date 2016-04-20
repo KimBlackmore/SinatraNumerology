@@ -1,0 +1,11 @@
+<h3> <%= "#{@person.first_name} #{@person.last_name}"%></h3>
+	<p> <%= @birthdate_to_print %></p>
+
+<div class="well">
+	<p>Your numerology number is <%= @number %></p>
+	<p> <%= @message %></p>
+</div>
+
+<form action = "<%= "/people" %> " method = "get">
+    <input type="submit" class="btn btn-primary  pull-right" value = "Go back to people list"/>
+</form>

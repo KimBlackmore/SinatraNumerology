@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
 		end
 	end
 
-	def self.get_birth_path_number(birthdate)
+	def self.get_birth_path_num(birthdate)
 
 		total = 0
 		birthdate.split("").each do |ch|

@@ -1,0 +1,38 @@
+<h2> People in the system</h2>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <th> Name</th>
+        <th> Birthdate</th>   
+        <th> Edit</th>
+        <th> Delete </th>
+      </thead>
+      <tbody>
+        <% @people.each do |person| %>
+          <tr>
+            <td>
+            	<a href=<%= "/people/#{person.id}"%> >
+              	<%= "#{person.first_name} #{person.last_name}" %>
+              </a>
+            </td>
+            <td>
+              <%= birthdate_to_print = person.birthdate.strftime("%d-%m-%Y")
+                 "#{birthdate_to_print}" %>
+            </td>
+            <td>
+              <a href= <%= "/people/#{person.id}/edit" %>> Edit </a>
+            </td>
+            <td>
+              <form action = "<%= "/people/#{person.id}" %> " method = "post">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" class="btn btn-warning" value = "Delete"/>
+              </form>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <form action = "<%= "/people/new" %> " method = "get">
+      <input type="submit" class="btn btn-success" value = "Add another person"/>
+    </form>
+  </div>
